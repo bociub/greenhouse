@@ -1,0 +1,24 @@
+http port 5000
+diassambling "next"?
+
+
+changes:
+recipes - greenHouseS
+recipe_id - greenHouseID
+recipe - greenHouse
+Recipe - GreenHouse
+RecipeListResource - GreenHouseListResource
+
+
+greenHouseS = [
+    {
+        'id': 1,
+        'name': 'Charmgarden',
+        'description': 'place of the best lettuce'
+    },
+    {
+        'id': 2, 
+        'name': 'cottageshine',
+        'description': 'the house top garden of tomato'
+    }
+]
