@@ -6,9 +6,9 @@ from resources.greenHouse import GreenHouseListResource, GreenHouseResource, Gre
 app = Flask(__name__)
 api = Api(app)
 
-api.add_resource(GreenHouseListResource, '/recipes')
-api.add_resource(GreenHouseResource, '/recipes/<int:recipe_id>')
-api.add_resource(GreenHousePublishResource, '/recipes/<int:recipe_id>/publish')
+api.add_resource(GreenHouseListResource, '/greenHouseS')
+api.add_resource(GreenHouseResource, '/greenHouseS/<int:greenHouse_id>') #for overwritting
+api.add_resource(GreenHousePublishResource, '/greenHouseS/<int:greenHouse_id>/duck') #if delete then forSale=False if put then True
 
 @app.route("/")###########notneeded#####
 def hello():###########notneeded#####
@@ -18,4 +18,6 @@ if __name__ == '__main__':
     app.run(port=5000, debug=True)
     
     
-exercise 10 next
+
+
+

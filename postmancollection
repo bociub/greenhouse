@@ -64,6 +64,97 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "delete a GH fosSalefalse",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/greenHouseS/3/duck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"greenHouseS",
+						"3",
+						"duck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put - owerwrite",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n \"name\": \"cottbank\",\r\n \"plant\" : \"staffo\",\r\n \"postcode\" : \"ws345tg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/greenHouseS/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"greenHouseS",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get 1 gh",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/greenHouseS/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"greenHouseS",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACitvate a GH fosSaletrue",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/greenHouseS/3/duck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"greenHouseS",
+						"3",
+						"duck"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

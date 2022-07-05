@@ -11,9 +11,9 @@ def get_last_id():
 
 class GreenHouse:
 
-    def __init__(self, name, plant, postcode, plantingDate, forSale, bookedForSale, energyPlan,
-                 harvestDate, counterForAVG, AVGofAirTemperature, GivenDaysWeather,
-                 currentParameters):
+    def __init__(self, name, plant, postcode, plantingDate=0, forSale=False, bookedForSale=0,
+                 energyPlan=0, harvestDate=0, counterForAVG=0, AVGofAirTemperature=0, 
+                 GivenDaysWeather=0, currentParameters=0):
         self.id = get_last_id() #function above
         self.name = name
         self.plant = plant
@@ -38,5 +38,6 @@ class GreenHouse:
             'id': self.id,
             'name': self.name,
             'plant': self.plant,
+            'forSale': self.forSale
 
         }

@@ -33,7 +33,8 @@ class GreenHouseListResource(Resource):
 class GreenHouseResource(Resource):
 
     def get(self, greenHouse_id):
-        greenHouse = next((greenHouse for greenHouse in greenHouse_list if greenHouse.id == greenHouse_id and greenHouse.is_publish == True), None)
+        #return {'holly duck'}, HTTPStatus.NOT_FOUND
+        greenHouse = next((greenHouse for greenHouse in greenHouse_list if greenHouse.id == greenHouse_id and greenHouse.forSale == True), None)
 
         if greenHouse is None:
             return {'message': 'greenHouse not found'}, HTTPStatus.NOT_FOUND
@@ -51,6 +52,7 @@ class GreenHouseResource(Resource):
         greenHouse.name = data['name']
         greenHouse.plant = data['plant']
         greenHouse.postcode = data['postcode']
+        greenHouse.forSale = data['forSale']
 
 
         return greenHouse.data, HTTPStatus.OK
@@ -64,7 +66,7 @@ class GreenHousePublishResource(Resource):
         if greenHouse is None:
             return {'message': 'greenHouse not found'}, HTTPStatus.NOT_FOUND
 
-        greenHouse.is_publish = True
+        greenHouse.forSale = True
 
         return {}, HTTPStatus.NO_CONTENT
 
@@ -74,7 +76,7 @@ class GreenHousePublishResource(Resource):
         if greenHouse is None:
             return {'message': 'greenHouse not found'}, HTTPStatus.NOT_FOUND
 
-        greenHouse.is_publish = False
+        greenHouse.forSale = False
 
         return {}, HTTPStatus.NO_CONTENT
 
