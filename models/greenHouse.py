@@ -1,3 +1,4 @@
+from extensions import db
 greenHouse_list = []
 
 
@@ -8,7 +9,7 @@ def get_last_id():
         return 1
     return last_greenHouse.id + 1
 
-
+"""Without database
 class GreenHouse:
 
     def __init__(self, name, plant, postcode, plantingDate=0, forSale=False, bookedForSale=0,
@@ -26,12 +27,7 @@ class GreenHouse:
         self.counterForAVG = 4
         self.AVGofAirTemperature = 3
         self.GivenDaysWeather = 2
-        self.currentParameters = 1 #read databasedescription
-        
-
-
-
-
+        self.currentParameters = 1 
     @property
     def data(self):
         return {
@@ -40,4 +36,22 @@ class GreenHouse:
             'plant': self.plant,
             'forSale': self.forSale
 
-        }
+        }"""
+class GreenHouse(db.Model):
+    __tablename__ = 'greenhouses'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    plant = db.Column(db.String(200))
+    postcode = db.Column(db.String(200))
+    plantingDate = db.Column(db.Integer)
+    forSale = db.Column(db.Boolean(), default=False)
+    bookedForSale = db.Column(db.Boolean(), default=False)
+    energyPlan = db.Column(db.Integer)
+    harvestDate = db.Column(db.String(1000))
+    counterForAVG = db.Column(db.Integer)
+    AVGofAirTemperature = db.Column(db.Integer)
+    GivenDaysWeather = db.Column(db.Integer)
+    currentParameters = db.Column(db.Integer)
+  
+    user_id = db.Column(db.Integer(), db.ForeignKey("user.id"))    
