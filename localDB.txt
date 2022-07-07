@@ -11,5 +11,7 @@ flask db migrate /create the database and tables
 #  a6d248ab7b23_.py /do a rewiew of this file
 flask db upgrade /crating fields(as described)
 
+flask db downgrade / if decreasing the numers of fields
+
 if we need to upgrade the database, we can just call flask
 db migrate and flask db upgrade.
