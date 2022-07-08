@@ -1,7 +1,7 @@
 from extensions import db
 greenHouse_list = []
 
-
+"""Without database
 def get_last_id():
     if greenHouse_list:
         last_greenHouse = greenHouse_list[-1]
@@ -9,7 +9,7 @@ def get_last_id():
         return 1
     return last_greenHouse.id + 1
 
-"""Without database
+
 class GreenHouse:
 
     def __init__(self, name, plant, postcode, plantingDate=0, forSale=False, bookedForSale=0,
@@ -54,4 +54,46 @@ class GreenHouse(db.Model):
     GivenDaysWeather = db.Column(db.Integer)
     currentParameters = db.Column(db.Integer)
   
-    user_id = db.Column(db.Integer(), db.ForeignKey("user.id"))    
+    user_id = db.Column(db.Integer(), db.ForeignKey("user.id"))
+
+    def data(self):
+        return {
+          
+            'id': self.id,
+            'name': self.name,
+            'plant': self.plant,
+            'postcode': self.postcode,
+            'plantingDate':  self.plantingDate,
+            'forSale': self.forSale,
+            'bookedForSale': self.bookedForSale,
+            'energyPlan': self.energyPlan,
+            'harvestDate': self.harvestDate,
+            'counterForAVG':  self.counterForAVG,
+            'AVGofAirTemperature':  self.AVGofAirTemperature,
+            'GivenDaysWeather': self.GivenDaysWeather,
+            'currentParameters': self.currentParameters
+        }
+
+    @classmethod
+    def get_all_forSale(cls):
+        return cls.query.filter_by(forSale=True).all()
+
+    @classmethod
+    def get_by_id(cls, greenHouse_id):
+        return cls.query.filter_by(id=greenHouse_id).first()
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+
+
+
+
+
+
+    

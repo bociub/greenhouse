@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "fe1636d7-655a-479a-b7e5-0c3ff3cff570",
+		"name": "user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21763476"
+	},
+	"item": [
+		{
+			"name": "a new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"username\": \"asd\",\r\n \"email\": \"asda@gmail.com\",\r\n \"password\": \"asd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/users/kiskacsa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"kiskacsa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user with token",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTcyMjE0NjYsIm5iZiI6MTY1NzIyMTQ2NiwianRpIjoiYzhhZDUxOGEtMDdmYS00ODBhLWE3MDAtNTY0OWQ2ZjFlYzM4IiwiZXhwIjoxNjU3MjIyMzY2LCJpZGVudGl0eSI6NSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.qDEB5kyQUguuPaljuCXcxVkhHRbISz-tSr5BvcyHLWU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/users/asd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"asd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get me",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTcyNjA1MzIsIm5iZiI6MTY1NzI2MDUzMiwianRpIjoiYzUyNzdmMmYtZjkxZi00MDBkLTkwZTUtYzcyZjVjMzI4OGE1IiwiZXhwIjoxNjU3MjYxNDMyLCJpZGVudGl0eSI6NSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.g7X3lwGh9pJ41k6hImP4gmUwRzG7CBSoK8gfnK8Xxuw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

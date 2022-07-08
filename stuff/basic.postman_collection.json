@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "d5de2046-90d0-4b90-a466-181e13e95808",
+		"name": "basic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21763476"
+	},
+	"item": [
+		{
+			"name": "get greenhouses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"id\": \"3\",\r\n \"name\": \"riverbank\",\r\n \"description\" : \"greenfield on the concrete\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/greenHouseS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"greenHouseS"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post a new gh",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTcyODE5MTQsIm5iZiI6MTY1NzI4MTkxNCwianRpIjoiZGI4MDc5NDktM2UwYi00MGM3LWE1NmQtMzQwYWI2ZmZmYjJiIiwiZXhwIjoxNjU3MjgyODE0LCJpZGVudGl0eSI6NSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.KMll9WTNU9oaLxZZKm67VmXbflovRsr4jjHj74zbU9E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n \"name\": \"riverbank\",\r\n \"plant\" : \"staffo\",\r\n \"postcode\" : \"ws345tg\",\r\n \"plantingDate\" : 2022,\r\n \"forSale\" : true,\r\n \"bookedForSale\" : true,\r\n \"energyPlan\": 4,\r\n \"harvestDate\" : \"monday\",\r\n \"counterForAVG\" : 4,\r\n \"AVGofAirTemperature\" : 25,\r\n \"GivenDaysWeather\" : 5,\r\n \"currentParameters\" : 4\r\n\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/greenHouseS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"greenHouseS"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete a GH fosSalefalse",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/greenHouseS/3/duck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"greenHouseS",
+						"3",
+						"duck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put - owerwrite",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n \"name\": \"cottbank\",\r\n \"plant\" : \"staffo\",\r\n \"postcode\" : \"ws345tg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/greenHouseS/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"greenHouseS",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get 1 gh",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/greenHouseS/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"greenHouseS",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ACitvate a GH fosSaletrue",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/greenHouseS/3/duck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"greenHouseS",
+						"3",
+						"duck"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
