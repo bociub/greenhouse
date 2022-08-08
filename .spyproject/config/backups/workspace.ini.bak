@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['notes.txt', 'localDB.txt', 'requirements.txt', 'resources\\user.py', 'app.py', 'resources\\token.py', 'utils.py']
+recent_files = ['resources\\greenHouse.py', 'resources\\token.py', 'stuff\\notes.txt', 'stuff\\requirements.txt', 'app.py']
 

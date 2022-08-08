@@ -43,7 +43,8 @@ class GreenHouseListResource(Resource):
         counterForAVG = json_data['counterForAVG'],
         AVGofAirTemperature = json_data['AVGofAirTemperature'],
         GivenDaysWeather = json_data['GivenDaysWeather'],
-        currentParameters = json_data['currentParameters'])
+        currentParameters = json_data['currentParameters'],
+        user_id=current_user)
     
 
         greenHouse.save()
