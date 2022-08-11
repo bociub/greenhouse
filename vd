@@ -1,0 +1,41 @@
+[33mcommit 22dbf2ab14e498aad1077001aac0d3b8d9fe61e8[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: bociub <bociub@gmail.com>
+Date:   Fri Jul 8 13:54:58 2022 +0100
+
+    26-29 working and tested
+
+[33mcommit f795951f305ede86080f743c9001a4d198f86b3d[m
+Author: bociub <bociub@gmail.com>
+Date:   Thu Jul 7 20:28:27 2022 +0100
+
+    23-26 working after correct jwt version
+
+[33mcommit a5167440573174920a52d7d1f5c56d5b39946c03[m
+Author: bociub <bociub@gmail.com>
+Date:   Wed Jul 6 01:09:24 2022 +0100
+
+    18-23 still working
+
+[33mcommit 9fe756ce50e427cd76459d5f32cdabc91806b069[m
+Author: bociub <bociub@gmail.com>
+Date:   Tue Jul 5 22:40:09 2022 +0100
+
+    10-18 - working and tested
+
+[33mcommit 5a9deba3674c1635218d43d4431974c274e74178[m
+Author: bociub <bociub@gmail.com>
+Date:   Tue Jul 5 00:55:58 2022 +0100
+
+    '1-10'
+
+[33mcommit de851a18c358211c02f95600587bf0e01256a1d7[m
+Author: bociub <bociub@gmail.com>
+Date:   Mon Jul 4 00:21:28 2022 +0100
+
+    justtest
+
+[33mcommit 44b9adf627082d808f309f06467f3dda864a8851[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: bociub <59746129+bociub@users.noreply.github.com>
+Date:   Sun Jul 3 23:52:20 2022 +0100
+
+    Initial commit
