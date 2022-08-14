@@ -25,27 +25,33 @@ class GreenHouseListResource(Resource):
 
         current_user = get_jwt_identity()
 
-        """greenHouse = GreenHouse(name=json_data['name'],
-                        description=json_data['description'],
-                        num_of_servings=json_data['num_of_servings'],
-                        cook_time=json_data['cook_time'],
-                        directions=json_data['directions'],
-                        user_id=current_user)"""
-    
-        greenHouse = GreenHouse(name = json_data['name'],
-        plant = json_data['plant'],
-        postcode = json_data['postcode'],
-        plantingDate = json_data['plantingDate'],
-        forSale = json_data['forSale'],
-        bookedForSale = json_data['bookedForSale'],
-        energyPlan = json_data['energyPlan'],
-        harvestDate = json_data['harvestDate'],
-        counterForAVG = json_data['counterForAVG'],
-        AVGofAirTemperature = json_data['AVGofAirTemperature'],
-        GivenDaysWeather = json_data['GivenDaysWeather'],
-        currentParameters = json_data['currentParameters'],
-        user_id=current_user)
-    
+        greenHouse = GreenHouse( #It is a function not a tuple :D
+            user_id=current_user,
+            
+            bookedForSale = json_data['bookedForSale'],
+            recordDateTime = json_data['recordDateTime'],
+            LightRelay = json_data['LightRelay'],
+            LightCurrent = json_data['LightCurrent'],
+            FanRelay = json_data['FanRelay'],
+            FanCurrent = json_data['FanCurrent'],
+            OutsideTemp = json_data['OutsideTemp'],
+            InsideTemp = json_data['InsideTemp'],
+            Lightsensor = json_data['Lightsensor'],
+            AirheaterRelay = json_data['AirheaterRelay'],
+            AirHeaterCurrent = json_data['AirHeaterCurrent'],
+            WaterPumpCurrent = json_data['WaterPumpCurrent'],
+            WaterHeaterRelay = json_data['WaterHeaterRelay'],
+            WaterHeaterCurrent = json_data['WaterHeaterCurrent'],
+            WaterTemp = json_data['WaterTemp'],
+            AirPumpCurrent = json_data['AirPumpCurrent'],
+            
+            )
+            
+        
+                                
+
+
+
 
         greenHouse.save()
 
@@ -71,7 +77,7 @@ class GreenHouseResource(Resource):
         return greenHouse.data(), HTTPStatus.OK
 
     @jwt_required
-    def put(self, greenHouse_id):
+    def put(self, greenHouse_id):#not in use
 
         json_data = request.get_json()
 
@@ -104,9 +110,11 @@ class GreenHouseResource(Resource):
         greenHouse.save()
 
         return greenHouse.data(), HTTPStatus.OK
+    
+
 
     @jwt_required
-    def delete(self, greenHouse_id):
+    def delete(self, greenHouse_id): #where user Id....
 
         greenHouse = GreenHouse.get_by_id(greenHouse_id=greenHouse_id)
 

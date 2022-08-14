@@ -14,7 +14,7 @@ class UserListResource(Resource):
         username = json_data.get('username')
         email = json_data.get('email')
         non_hash_password = json_data.get('password')
-        testtime = json_data.get('testtime')##########################################
+
 
         if User.get_by_username(username):
             return {'message': 'username already used'}, HTTPStatus.BAD_REQUEST
@@ -28,7 +28,7 @@ class UserListResource(Resource):
             username=username,
             email=email,
             password=password,
-            testtime=testtime,########################################
+
         )
 
         user.save()
@@ -79,18 +79,22 @@ class MeResource(Resource):
             'id': user.id,
             'username': user.username,
             'email': user.email,
+            'is_active' : user.is_active
 
-            #'testtime' : user.testtime ##################################################
 
         }
 
         return data, HTTPStatus.OK
     
     @jwt_required    
-    def put(self):
+    def put(self): # variables must be in syncron in the received data and here. if not then nothing happens.
+    
         user = User.get_by_id(id=get_jwt_identity())
         update_data = request.get_json()
-        user.testtime = update_data['testtime']
+        user.seedingDate = update_data['seedingDate']
+        user.postCode = update_data['postCode']
+        user.energyPlan = update_data['energyPlan']
+        
         user.save()
         
         return user.data(), HTTPStatus.OK

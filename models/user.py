@@ -8,11 +8,15 @@ class User(db.Model):
     username = db.Column(db.String(80), nullable=False, unique=True)
     email = db.Column(db.String(200), nullable=False, unique=True)
     password = db.Column(db.String(200))
-    testtime = db.Column(db.DateTime(), nullable=True) #######################################
-    is_active = db.Column(db.Boolean(), default=False)
-    created_at = db.Column(db.DateTime(), nullable=False, server_default=db.func.now())
-    updated_at = db.Column(db.DateTime(), nullable=False, server_default=db.func.now(), onupdate=db.func.now())
 
+    ShoporGarden = db.Column(db.Boolean(), default=False, nullable=True)
+
+    seedingDate = db.Column(db.DateTime(), nullable=True)
+    postCode = db.Column(db.String(10), nullable=True)
+    forSale = db.Column(db.Boolean(), default=False, nullable=True)
+    energyPlan = db.Column(db.Integer, nullable=True)
+    
+    
     greenHouseS = db.relationship('GreenHouse', backref='user') #where tavles connected
 
     @classmethod

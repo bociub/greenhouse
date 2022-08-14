@@ -41,42 +41,56 @@ class GreenHouse(db.Model):
     __tablename__ = 'greenhouses'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    plant = db.Column(db.String(200))
-    postcode = db.Column(db.String(200))
-    plantingDate = db.Column(db.Integer)
-    forSale = db.Column(db.Boolean(), default=False)
-    bookedForSale = db.Column(db.Boolean(), default=False)
-    energyPlan = db.Column(db.Integer)
-    harvestDate = db.Column(db.String(1000))
-    counterForAVG = db.Column(db.Integer)
-    AVGofAirTemperature = db.Column(db.Integer)
-    GivenDaysWeather = db.Column(db.Integer)
-    currentParameters = db.Column(db.Integer)
-  
     user_id = db.Column(db.Integer(), db.ForeignKey("user.id"))
+    bookedForSale = db.Column(db.Boolean())
+    recordDateTime = db.Column(db.DateTime(), nullable=True)
+    LightRelay = db.Column(db.Boolean())
+    LightCurrent = db.Column(db.Boolean())
+    FanRelay = db.Column(db.Boolean())
+    FanCurrent = db.Column(db.Boolean())
+    OutsideTemp = db.Column(db.Integer)
+    InsideTemp = db.Column(db.Integer)
+    Lightsensor = db.Column(db.Boolean())
+    AirheaterRelay = db.Column(db.Boolean())
+    AirHeaterCurrent = db.Column(db.Boolean())
+    WaterPumpCurrent = db.Column(db.Boolean())
+    WaterHeaterRelay = db.Column(db.Boolean())
+    WaterHeaterCurrent = db.Column(db.Boolean())
+    WaterTemp = db.Column(db.Integer)
+    AirPumpCurrent = db.Column(db.Boolean())
 
-    def data(self):
+    
+  
+
+    def data(self):# do I need this?
         return {
           
             'id': self.id,
-            'name': self.name,
-            'plant': self.plant,
-            'postcode': self.postcode,
-            'plantingDate':  self.plantingDate,
-            'forSale': self.forSale,
+            'user_id': self.user_id,
             'bookedForSale': self.bookedForSale,
-            'energyPlan': self.energyPlan,
-            'harvestDate': self.harvestDate,
-            'counterForAVG':  self.counterForAVG,
-            'AVGofAirTemperature':  self.AVGofAirTemperature,
-            'GivenDaysWeather': self.GivenDaysWeather,
-            'currentParameters': self.currentParameters
+            'recordDateTime': self.recordDateTime,
+            'LightRelay':  self.LightRelay,
+            'LightCurrent': self.LightCurrent,
+            'FanRelay': self.FanRelay,
+            'FanCurrent': self.FanCurrent,
+            'OutsideTemp': self.OutsideTemp,
+            'InsideTemp':  self.InsideTemp,
+            'Lightsensor':  self.Lightsensor,
+            'AirheaterRelay': self.GAirheaterRelay,
+            'AirHeaterCurrent' : self.AirHeaterCurrent,
+            'WaterHeaterRelay' : self.WaterHeaterRelay,
+            'WaterHeaterCurrent' : self.WaterHeaterCurrent,
+            'WaterTemp' : self.WaterTemp,
+            'AirPumpCurrent' : self.AirPumpCurrent
+
+            
+            
+            
         }
 
     @classmethod
     def get_all_forSale(cls):
-        return cls.query.filter_by(forSale=True).all()
+        return cls.query.filter_by(bookedForSale=True).all()
 
     @classmethod
     def get_by_id(cls, greenHouse_id):
