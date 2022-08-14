@@ -73,30 +73,39 @@ class MeResource(Resource):
 
     @jwt_required
     def get(self):
-        user = User.get_by_id(id=get_jwt_identity())
-
+        user = User.get_by_id(user_id=get_jwt_identity())
+ 
         data = {
-            'id': user.id,
+            'user_id': user.user_id,
             'username': user.username,
-            'email': user.email,
-            'is_active' : user.is_active
-
-
+            'email': user.email
         }
+        
 
         return data, HTTPStatus.OK
     
     @jwt_required    
     def put(self): # variables must be in syncron in the received data and here. if not then nothing happens.
-    
-        user = User.get_by_id(id=get_jwt_identity())
+
         update_data = request.get_json()
-        user.seedingDate = update_data['seedingDate']
-        user.postCode = update_data['postCode']
-        user.energyPlan = update_data['energyPlan']
+        user = User.get_by_id(user_id=get_jwt_identity())
+
+        user.seedingDate = update_data["seedingDate"]
+        user.postCode = update_data["postCode"]
+        user.energyPlan = update_data["energyPlan"]
         
-        user.save()
+
+
+        data = {
+            'user_id': user.user_id,
+            'username': user.username,
+            'email': user.email,
+            'seedingDate' : user.seedingDate,
+            'postCode' : user.postCode,
+            'energyPlan' : user.energyPlan
+        }
+        user.save()        
         
-        return user.data(), HTTPStatus.OK
+        return data, HTTPStatus.OK
         
         

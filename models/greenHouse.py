@@ -41,9 +41,9 @@ class GreenHouse(db.Model):
     __tablename__ = 'greenhouses'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer(), db.ForeignKey("user.id"))
+    user_id = db.Column(db.Integer(), db.ForeignKey("user.user_id"))
     bookedForSale = db.Column(db.Boolean())
-    recordDateTime = db.Column(db.DateTime(), nullable=True)
+    recordDateTime = db.Column(db.String(200))#db.Column(db.DateTime(), nullable=True)
     LightRelay = db.Column(db.Boolean())
     LightCurrent = db.Column(db.Boolean())
     FanRelay = db.Column(db.Boolean())
@@ -76,7 +76,7 @@ class GreenHouse(db.Model):
             'OutsideTemp': self.OutsideTemp,
             'InsideTemp':  self.InsideTemp,
             'Lightsensor':  self.Lightsensor,
-            'AirheaterRelay': self.GAirheaterRelay,
+            'AirheaterRelay': self.AirheaterRelay,
             'AirHeaterCurrent' : self.AirHeaterCurrent,
             'WaterHeaterRelay' : self.WaterHeaterRelay,
             'WaterHeaterCurrent' : self.WaterHeaterCurrent,

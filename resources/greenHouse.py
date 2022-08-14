@@ -26,9 +26,11 @@ class GreenHouseListResource(Resource):
         current_user = get_jwt_identity()
 
         greenHouse = GreenHouse( #It is a function not a tuple :D
-            user_id=current_user,
             
-            bookedForSale = json_data['bookedForSale'],
+                                
+            user_id = current_user,
+            
+            bookedForSale = json_data["bookedForSale"],
             recordDateTime = json_data['recordDateTime'],
             LightRelay = json_data['LightRelay'],
             LightCurrent = json_data['LightCurrent'],
@@ -43,7 +45,7 @@ class GreenHouseListResource(Resource):
             WaterHeaterRelay = json_data['WaterHeaterRelay'],
             WaterHeaterCurrent = json_data['WaterHeaterCurrent'],
             WaterTemp = json_data['WaterTemp'],
-            AirPumpCurrent = json_data['AirPumpCurrent'],
+            AirPumpCurrent = json_data['AirPumpCurrent']
             
             )
             

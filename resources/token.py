@@ -21,9 +21,9 @@ class TokenResource(Resource):
         if not user or not check_password(password, user.password):
             return {'message': 'username or password is incorrect'}, HTTPStatus.UNAUTHORIZED
         #return 'kaposzta'
-        access_token = create_access_token(identity=user.id, fresh=True) #whatswrong? p122 update to 3.25 solved the problem.
+        access_token = create_access_token(identity=user.user_id, fresh=True) #whatswrong? p122 update to 3.25 solved the problem.
         #return 'kaposzta'
-        refresh_token = create_refresh_token(identity=user.id) #https://flask-jwt-extended.readthedocs.io/en/stable/refreshing_tokens/
+        refresh_token = create_refresh_token(identity=user.user_id) #https://flask-jwt-extended.readthedocs.io/en/stable/refreshing_tokens/
         return {'access_token': access_token, 'refresh_token' : refresh_token}, HTTPStatus.OK
 
 class RefreshResource(Resource):
