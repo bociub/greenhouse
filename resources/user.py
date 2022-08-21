@@ -93,6 +93,7 @@ class MeResource(Resource):
         user.seedingDate = update_data["seedingDate"]
         user.postCode = update_data["postCode"]
         user.energyPlan = update_data["energyPlan"]
+
         
 
 
@@ -102,7 +103,8 @@ class MeResource(Resource):
             'email': user.email,
             'seedingDate' : user.seedingDate,
             'postCode' : user.postCode,
-            'energyPlan' : user.energyPlan
+            'energyPlan' : user.energyPlan,
+            'bookedForSale' : user.bookedForSale
         }
         user.save()        
         

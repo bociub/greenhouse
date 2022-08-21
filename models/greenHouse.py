@@ -42,21 +42,21 @@ class GreenHouse(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer(), db.ForeignKey("user.user_id"))
-    bookedForSale = db.Column(db.Boolean())
-    recordDateTime = db.Column(db.String(200))#db.Column(db.DateTime(), nullable=True)
+    #bookedForSale = db.Column(db.Boolean())
+    recordDateTime = db.Column(db.String(20))#db.Column(db.DateTime(), nullable=True)
     LightRelay = db.Column(db.Boolean())
     LightCurrent = db.Column(db.Boolean())
     FanRelay = db.Column(db.Boolean())
     FanCurrent = db.Column(db.Boolean())
-    OutsideTemp = db.Column(db.Integer)
-    InsideTemp = db.Column(db.Integer)
+    OutsideTemp = db.Column(db.Float)
+    InsideTemp = db.Column(db.Float)
     Lightsensor = db.Column(db.Boolean())
     AirheaterRelay = db.Column(db.Boolean())
     AirHeaterCurrent = db.Column(db.Boolean())
     WaterPumpCurrent = db.Column(db.Boolean())
     WaterHeaterRelay = db.Column(db.Boolean())
     WaterHeaterCurrent = db.Column(db.Boolean())
-    WaterTemp = db.Column(db.Integer)
+    WaterTemp = db.Column(db.Float)
     AirPumpCurrent = db.Column(db.Boolean())
 
     
@@ -67,7 +67,7 @@ class GreenHouse(db.Model):
           
             'id': self.id,
             'user_id': self.user_id,
-            'bookedForSale': self.bookedForSale,
+            #'bookedForSale': self.bookedForSale,
             'recordDateTime': self.recordDateTime,
             'LightRelay':  self.LightRelay,
             'LightCurrent': self.LightCurrent,

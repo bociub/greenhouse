@@ -30,7 +30,7 @@ class GreenHouseListResource(Resource):
                                 
             user_id = current_user,
             
-            bookedForSale = json_data["bookedForSale"],
+            #bookedForSale = json_data["bookedForSale"],
             recordDateTime = json_data['recordDateTime'],
             LightRelay = json_data['LightRelay'],
             LightCurrent = json_data['LightCurrent'],
@@ -99,7 +99,7 @@ class GreenHouseResource(Resource):
         greenHouse.postcode = json_data['postcode']
         greenHouse.plantingDate = json_data['plantingDate']
         greenHouse.forSale = json_data['forSale']
-        greenHouse.bookedForSale = json_data['bookedForSale']
+        #greenHouse.bookedForSale = json_data['bookedForSale']
         greenHouse.energyPlan = json_data['energyPlan']
         greenHouse.harvestDate = json_data['harvestDate']
         greenHouse.counterForAVG = json_data['counterForAVG']
