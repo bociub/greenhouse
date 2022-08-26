@@ -1,11 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask_migrate import Migrate
 from flask_restful import Api
 
 from config import Config
 from extensions import db, jwt
 from resources.user import UserListResource, UserResource, MeResource
-from resources.token import TokenResource, RefreshResource, TokenResource2
+from resources.token import TokenResource, RefreshResource
 #from models.user import User
 from resources.greenHouse import GreenHouseListResource, GreenHouseResource, GreenHousePublishResource
 
@@ -26,11 +26,22 @@ def register_extensions(app):
 def register_resources(app):
     api = Api(app)    
 
-    api.add_resource(TokenResource2, '/')
-  
+    api.add_resource(TokenResource, '/token')
+    api.add_resource(UserResource, '/users/<string:username>')
+    api.add_resource(UserListResource, '/users')
+    api.add_resource(MeResource, '/me')
+    api.add_resource(RefreshResource, '/refresh')
+    
+    api.add_resource(GreenHouseListResource, '/greenHouseS')
+    api.add_resource(GreenHouseResource, '/greenHouseS/<int:greenHouse_id>') #for overwritting
+    api.add_resource(GreenHousePublishResource, '/greenHouseS/<int:greenHouse_id>/duck') #if delete then forSale=False if put then True
+
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(port=80, debug=True)
+    app.run(port=5000, debug=True)
     
     
+
+
+

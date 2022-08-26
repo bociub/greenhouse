@@ -35,3 +35,4 @@ class RefreshResource(Resource):
         token = create_access_token(identity=current_user, fresh=False)
 
         return {'token': token}, HTTPStatus.OK
+    

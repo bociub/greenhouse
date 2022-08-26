@@ -3,3 +3,6 @@ httpie==1.0.2
 Flask-RESTful==0.3.7
 passlib==1.7.2 
 Flask-JWT-Extended==3.25.0
+markupsafe==2.0.1
+flask_migrate
+flask_jwt_extended
