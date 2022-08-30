@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['resources\\token.py', 'app2.py']
+recent_files = ['resources\\token.py', 'app2.py', 'resources\\user.py', 'stuff\\localDB.txt', 'app.py', 'config.py', 'models\\greenHouse.py']
 
 [main]
 version = 0.2.0

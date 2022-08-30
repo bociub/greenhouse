@@ -29,12 +29,13 @@ class UserListResource(Resource):
             email=email,
             password=password,
 
+
         )
 
         user.save()
 
         data = {
-            'id': user.id,
+            'user_id': user.user_id,
             'username': user.username,
             'email': user.email
         }
